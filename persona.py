@@ -1,4 +1,4 @@
-class persona:
+class persona:  #clase padre
     #atributos
     def __init__(self,nombre,dni,telefono):
         self.nombre=nombre
@@ -11,7 +11,25 @@ class persona:
         return f"Soy {self.nombre} con DNI: {self.dni}"
 
 
+#clases HIJAS:
+class cliente(persona):
+    def __init__(self,nombre,dni,telefono):
+        super().__init__(nombre,dni,telefono)
+        self.tipo_usuario="Cliente"
+    def mostrar_cliente(self):
+        return f"{self.mostrar_datos()}, tipo de usuario: {self.tipo_usuario}"
 
-p=persona("Diego","45873451","2617127020")
-print(p.mostrar_datos())
-print(p.identificarse())
+c=cliente("ana","26756304","2615473928")
+print(c.mostrar_cliente())
+print(c.identificarse()) #herencia de persona
+
+class propietario(persona):
+    def __init__(self, nombre, dni, telefono):
+        super().__init__(nombre, dni, telefono)
+        self.tipo_usuario="Propietario"
+    def mostrar_propietario(self):
+        return f"{self.mostrar_datos()}, tipo de usuario: {self.tipo_usuario}"
+
+p=propietario("juan roman","26343234","2614453267")
+print(p.mostrar_propietario()) #metodo de propietario
+print(p.identificarse()) #herencia de persona(metodo)
