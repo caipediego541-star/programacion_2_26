@@ -62,3 +62,4 @@ c1 = camioneta("CAM789", "Ford", "Ranger", "Negro", 1200, "4x4")
 print(c1.mostrar_camioneta())
 print(c1.encender())
 print(c1.apagar())
+
